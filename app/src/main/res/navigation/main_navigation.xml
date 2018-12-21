@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main_navigation"
+            app:startDestination="@id/homeFragment">
+
+    <fragment android:id="@+id/homeFragment" android:name="com.wajahatkarim3.bottomnavarch_demo.HomeFragment"
+              android:label="fragment_home" tools:layout="@layout/fragment_home">
+        <action android:id="@+id/action_homeFragment_to_notificationsFragment"
+                app:destination="@id/notificationsFragment"/>
+        <action android:id="@+id/action_homeFragment_to_profileFragment" app:destination="@id/profileFragment"/>
+    </fragment>
+    <fragment android:id="@+id/notificationsFragment"
+              android:name="com.wajahatkarim3.bottomnavarch_demo.NotificationsFragment"
+              android:label="fragment_notifications" tools:layout="@layout/fragment_notifications">
+        <action android:id="@+id/action_notificationsFragment_to_notificationDetailsFragment"
+                app:destination="@id/notificationDetailsFragment"/>
+    </fragment>
+    <fragment android:id="@+id/profileFragment" android:name="com.wajahatkarim3.bottomnavarch_demo.ProfileFragment"
+              android:label="fragment_profile" tools:layout="@layout/fragment_profile"/>
+    <fragment android:id="@+id/notificationDetailsFragment"
+              android:name="com.wajahatkarim3.bottomnavarch_demo.NotificationDetailsFragment"
+              android:label="fragment_notification_details" tools:layout="@layout/fragment_notification_details"/>
+</navigation>
