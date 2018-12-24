@@ -9,5 +9,14 @@
         android:id="@+id/homeFragment2"
         android:name="com.wajahatkarim3.bottomnavarch_demo.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment2_to_notificationDetailsFragment3"
+            app:destination="@id/notificationDetailsFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationDetailsFragment3"
+        android:name="com.wajahatkarim3.bottomnavarch_demo.NotificationDetailsFragment"
+        android:label="fragment_notification_details"
+        tools:layout="@layout/fragment_notification_details" />
 </navigation>

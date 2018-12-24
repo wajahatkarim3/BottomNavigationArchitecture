@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.FrameLayout
+import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.activity_bottom_nav.*
@@ -60,17 +61,66 @@ class BottomNavActivity : AppCompatActivity() {
         currentController?.navigateUp()
     }
 
+
     override fun onBackPressed() {
         currentController
-            ?.let { if (it.popBackStack().not()) finish() }
-            .or { finish() }
+            ?.let {
+
+                if (currentController == navHomeController)
+                {
+                    // We are in the Home tab (maybe in some nested level)
+                    if ((it.graph.startDestination == currentController?.currentDestination?.id))
+                    {
+                        Toast.makeText(this, "Press back button twice to exit the app", Toast.LENGTH_SHORT).show()
+                        finish()
+                    }
+                    else
+                    {
+                        // Go back one level
+                        it.navigateUp()
+                    }
+                }
+                else
+                {
+                    // Not in home, go to home if at last level
+                    if ((it.graph.startDestination == currentController?.currentDestination?.id))
+                    {
+                        navigation.selectedItemId = R.id.navigation_home
+                    }
+                    else
+                    {
+                        // Go back one level
+                        it.navigateUp()
+                    }
+                }
+
+                /*
+                if ( currentController != navHomeController && )
+                {
+                    navigation.selectedItemId = R.id.navigation_home
+                }
+                else if (currentController != navHomeController)
+                {
+                    //currentController?.navigateUp()
+                    var popped = it.navigateUp()
+                }
+                else
+                {
+                    Toast.makeText(this, "Press back button twice to exit the app", Toast.LENGTH_SHORT).show()
+                    finish()
+                }
+                */
+            }
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bottom_nav)
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
+        currentController = navHomeController
 
         sectionHomeWrapper.visibility = View.VISIBLE
         sectionDashboardWrapper.visibility = View.INVISIBLE

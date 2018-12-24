@@ -9,10 +9,12 @@
         android:id="@+id/notificationsFragment2"
         android:name="com.wajahatkarim3.bottomnavarch_demo.NotificationsFragment"
         android:label="fragment_notifications"
-        tools:layout="@layout/fragment_notifications" >
+        tools:layout="@layout/fragment_notifications"
+        >
         <action
             android:id="@+id/action_notificationsFragment2_to_notificationDetailsFragment2"
-            app:destination="@id/notificationDetailsFragment2" />
+            app:destination="@id/notificationDetailsFragment2"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/notificationDetailsFragment2"
