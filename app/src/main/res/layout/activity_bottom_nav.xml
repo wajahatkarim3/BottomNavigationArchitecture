@@ -7,18 +7,59 @@
     android:layout_height="match_parent"
     tools:context=".BottomNavActivity">
 
-    <fragment
-        android:id="@+id/fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
+    <FrameLayout
+        android:id="@+id/section_home_wrapper"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:defaultNavHost="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/navigation"
-        app:navGraph="@navigation/main_navigation"
-        tools:layout="@layout/fragment_home" />
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <fragment
+            android:id="@+id/section_home"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="false"
+            app:navGraph="@navigation/nav_graph_section_home"
+            />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/section_dashboard_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/navigation"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <fragment
+            android:id="@+id/section_dashboard"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="false"
+            app:navGraph="@navigation/nav_graph_section_dashboard"
+            />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/section_notification_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/navigation"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <fragment
+            android:id="@+id/section_notification"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="false"
+            app:navGraph="@navigation/nav_graph_section_notifications"
+            />
+    </FrameLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"

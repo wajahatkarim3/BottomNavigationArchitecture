@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_section_notifications.xml"
+    app:startDestination="@id/notificationsFragment2">
+
+    <fragment
+        android:id="@+id/notificationsFragment2"
+        android:name="com.wajahatkarim3.bottomnavarch_demo.NotificationsFragment"
+        android:label="fragment_notifications"
+        tools:layout="@layout/fragment_notifications" >
+        <action
+            android:id="@+id/action_notificationsFragment2_to_notificationDetailsFragment2"
+            app:destination="@id/notificationDetailsFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationDetailsFragment2"
+        android:name="com.wajahatkarim3.bottomnavarch_demo.NotificationDetailsFragment"
+        android:label="fragment_notification_details"
+        tools:layout="@layout/fragment_notification_details" />
+</navigation>
